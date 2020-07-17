@@ -13,11 +13,5 @@ node(){
         nodejs('nodejs') {
             sh 'npm run build'
             echo "Build completed"
-        }
-      
-       stage('Package Build') {
-        sh "tar -zcvf bundle.tar.gz my-app/"
-    }
-        
     }
 }
