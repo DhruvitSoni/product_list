@@ -14,15 +14,5 @@ node(){
             sh 'npm run build'
             echo "Build completed"
         }
-      
-      stage('Test') {
-            steps {
-                sh 'ng run-script test'
-            }
-        stage('Deploy') {
-            steps {
-                sh 'rm ../../apps/*'
-                sh 'cp ./dist/apps/* ../../apps/'
-            }
     }
 }
