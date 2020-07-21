@@ -1,18 +1,18 @@
-node(){
-    stage('Cloning Git') {
-        checkout scm
+pipeline{
+    agent{
+        label'dev-clickit'
     }
-        
-    stage('Install dependencies') {
-        nodejs('nodejs') {
-            sh 'npm install'
-            echo "Modules installed"
-        } 
-    }
-    stage('Build') {
-        nodejs('nodejs') {
-            sh 'npm run build'
-            echo "Build completed"
+    stages{
+        stage('build'){
+            steps{
+                 sh '''
+                  npm i
+                  pm2 restart clickit
+                  echo build done
+                 '''
+            }
         }
+       
     }
+   
 }
