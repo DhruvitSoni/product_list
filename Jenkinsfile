@@ -15,4 +15,11 @@ node(){
             echo "Build completed"
         }
     }
+  stage ('Deploy'){
+    nodejs('nodejs'){
+        echo "Deploy complete"
+    }
+  }
+}
+  
 }
